@@ -70,9 +70,10 @@ loan = {
 # Print each variable.
 future_value = loan.get("future_value")
 print(future_value)
-
+    #above I'm using the .get function to only show me the future value of a key in my dict loan
 Remaining_Months = loan.get("remaining_months")
 print(Remaining_Months)
+    #above I'm using the .get function to only show me the remaining months of a key in my dict loan
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
 # Use a minimum required return of 20% as the discount rate.
@@ -81,6 +82,7 @@ print(Remaining_Months)
 
 Present_value = future_value / (1 + 20 /12) ** Remaining_Months
 print(Present_value)
+    #above I've created a new formula that can be used later and printed easily with varibles I've added
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
@@ -91,8 +93,10 @@ if Present_value > 0.2 :
     print(F"The loan is worth at least the cost to buy it")
 else:
     print(F"The loan is too expensive and not worth the price")
-
-
+    #above I've created an if-else statement to tell me if the present value is too expensive or worth it
+    #the present value function from above is used rather than typing the whole function out making 
+    # the if-else statement nice and clean for human interpretation
+    
 """Part 3: Perform Financial Calculations.
 
 Perform financial calculations using functions.
@@ -123,15 +127,18 @@ def present_value_formula(future_value2,Remaining_months2, annual_disc_rate):
     present_v = future_value2 / ((1+ annual_disc_rate) ** Remaining_months2)
     return present_v
 
-present_v = present_value_formula(new_loan["loan_price"], new_loan["remaining_months"], annual_disc_rate)
+    #above I'm using creating a function definition of the present value formula
+    #having this defined will make my next function smaller and easier to read
 
+present_v = present_value_formula(new_loan["loan_price"], new_loan["remaining_months"], annual_disc_rate)
+    #above I've created the present value formula to calculate the present value of dict new_loan
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 
 
 print(f"The present value of the loan is: {present_v}")
-
+    #printing the present value data in a more coherent manor
 
 """Part 4: Conditionally filter lists of loans.
 
@@ -178,7 +185,8 @@ inexpensive_loans = []
 for key in loans:
     if key["loan_price"] <= 500:
         inexpensive_loans.append(key["loan_price"])
-
+    #above I'm simply creating a loop function that looks at the list of loans
+    # and only pulls the "loan_price" so that we can only look at the inexpensive loans
 # @TODO: Print the `inexpensive_loans` list
 print("These are the inexpensive loans:", inexpensive_loans)
 
