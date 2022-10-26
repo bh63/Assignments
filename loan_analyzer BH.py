@@ -218,3 +218,4 @@ with open(output_path, 'w',newline='') as csvfile:
     csvwriter.writerow(header)
     for row in loans:
         csvwriter.writerow(row.values())
+        #above I've told the code to create a CSV file out of the loan list 
